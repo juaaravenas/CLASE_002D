@@ -49,14 +49,19 @@ def reg_trabajador():
                     "desc_afp": desc_afp,
                     "liquido": liquido,
                 })
-    print(lista_trabajador)
-    input()
+    
     return 
 
 
 def lis_trabajador():
-    print('Has elegido la opción 2')
+     system("cls")
+     longitud = len(lista_trabajador)
+     print(f"Nombres\t        Cargo\t   Sueldo_Bruto\t Desc_salud\t Desc_afp\t Liquido\t")
+     for contador  in  range(longitud):
+         print(f"{lista_trabajador[contador]['nombres']}\t {lista_trabajador[contador]['cargo']}\t   {lista_trabajador[contador]['sueldo_bruto']}\t  {lista_trabajador[contador]['desc_salud']}\t   {lista_trabajador[contador]['desc_afp']}\t  {lista_trabajador[contador]['liquido']}\t\n" )
+     input()
 
+   
 
 def imp_trabajador():
     print('Has elegido la opción 3')
