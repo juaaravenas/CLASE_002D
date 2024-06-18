@@ -1,5 +1,6 @@
 from os import system
 lista_trabajador =[]
+
 def menu_principal():
     opciones = {
         '1': ('Registrar trabajador', reg_trabajador),
@@ -60,11 +61,15 @@ def lis_trabajador():
      for contador  in  range(longitud):
          print(f"{lista_trabajador[contador]['nombres']}\t {lista_trabajador[contador]['cargo']}\t   {lista_trabajador[contador]['sueldo_bruto']}\t  {lista_trabajador[contador]['desc_salud']}\t   {lista_trabajador[contador]['desc_afp']}\t  {lista_trabajador[contador]['liquido']}\t\n" )
      input()
-
+    
    
 
 def imp_trabajador():
-    print('Has elegido la opción 3')
+     with open(r"C:\Users\cetecom\Documents\salida.txt", "w", newline='') as archivo:
+        archivo.write(f"Nombres\t        Cargo\t   Sueldo_Bruto\t Desc_salud\t Desc_afp\t Liquido\t\n")
+        for lista  in  lista_trabajador:
+          archivo.write(f"{lista['nombres']}\t {lista['cargo']}\t   {lista['sueldo_bruto']}\t  {lista['desc_salud']}\t   {lista['desc_afp']}\t  {lista['liquido']}\t\n" )
+     
 
 
 def salir():
