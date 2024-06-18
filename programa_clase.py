@@ -1,6 +1,15 @@
 from os import system
 lista_trabajador =[]
 
+def menu_p2():
+    opciones = {
+        '1': ('Elegir Cargo ', imprimir_cargo),
+        '2': ('Imprimir Todo ',imprimir_todo),
+        '3': ('Salir', salir_imprimir)
+    }
+
+    generar_menu(opciones, '3')
+
 def menu_principal():
     opciones = {
         '1': ('Registrar trabajador', reg_trabajador),
@@ -65,11 +74,27 @@ def lis_trabajador():
    
 
 def imp_trabajador():
+    menu_p2()
+
+
+def imprimir_cargo():
+     with open(r"C:\Users\cetecom\Documents\salida.txt", "w", newline='') as archivo:
+          cargo= input("Ingrese el cargo a imprimir ")
+          longitud = len(lista_trabajador)
+          archivo.write(f"Nombres\t        Cargo\t   Sueldo_Bruto\t Desc_salud\t Desc_afp\t Liquido\t\n")
+          for contador  in  range(longitud):
+               if cargo == lista_trabajador[contador]['cargo']:
+                  archivo.write(f"{lista_trabajador[contador]['nombres']}\t {lista_trabajador[contador]['cargo']}\t   {lista_trabajador[contador]['sueldo_bruto']}\t  {lista_trabajador[contador]['desc_salud']}\t   {lista_trabajador[contador]['desc_afp']}\t  {lista_trabajador[contador]['liquido']}\t\n" )
+             
+
+def imprimir_todo():
      with open(r"C:\Users\cetecom\Documents\salida.txt", "w", newline='') as archivo:
         archivo.write(f"Nombres\t        Cargo\t   Sueldo_Bruto\t Desc_salud\t Desc_afp\t Liquido\t\n")
         for lista  in  lista_trabajador:
           archivo.write(f"{lista['nombres']}\t {lista['cargo']}\t   {lista['sueldo_bruto']}\t  {lista['desc_salud']}\t   {lista['desc_afp']}\t  {lista['liquido']}\t\n" )
      
+def salir_imprimir():
+    print('Saliendo')
 
 
 def salir():
