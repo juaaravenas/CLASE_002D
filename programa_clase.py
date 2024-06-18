@@ -1,8 +1,9 @@
 from os import system
+lista_trabajador =[]
 def menu_principal():
     opciones = {
         '1': ('Registrar trabajador', reg_trabajador),
-        '2': ('Listar todos los trabajadores', lista_trabajador),
+        '2': ('Listar todos los trabajadores', lis_trabajador),
         '3': ('Imprimir planilla de sueldos', imp_trabajador),
         '4': ('Salir del Programa', salir)
     }
@@ -33,10 +34,27 @@ def ejecutar_opcion(opcion, opciones):
 
 
 def reg_trabajador():
-    print('Has elegido la opción 1')
+    system("cls")
+    nombres = input("Ingrese  nombre  y Apellido del trabajador ")
+    cargo   = input("Ingrese el cargo del trabajador ")
+    sueldo_bruto = int(input("Ingrese el sueldo bruto del Trabajador "))
+    desc_salud =  int(round(sueldo_bruto *  7/100,0))
+    desc_afp =  int(round(sueldo_bruto*12/100,0))
+    liquido = sueldo_bruto - desc_salud - desc_afp
+    lista_trabajador.append({
+                    "nombres": nombres,
+                    "cargo": cargo,
+                    "sueldo_bruto": sueldo_bruto,
+                    "desc_salud": desc_salud,
+                    "desc_afp": desc_afp,
+                    "liquido": liquido,
+                })
+    print(lista_trabajador)
+    input()
+    return 
 
 
-def lista_trabajador():
+def lis_trabajador():
     print('Has elegido la opción 2')
 
 
